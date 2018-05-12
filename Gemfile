@@ -32,6 +32,8 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+# Front-end framework
+gem 'materialize-sass', '~> 0.96.1'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.4', '>= 3.4.2'
