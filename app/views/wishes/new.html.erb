@@ -1,0 +1,18 @@
+<h3>New wish</h3>
+  <div class="row">
+    <%= form_for @wish do |f| %>
+    <div>
+      <%= f.label :title %>
+      <%= f.text_field :title, placehoder: "Wish title", autofocus: true %>
+    </div>
+    <div>
+      <%= f.label :description %>
+      <%= f.text_field :description, placehoder: "Wish description", autofocus: true %>
+    </div>
+    <div>
+      <button type="button" name="button">
+        <%= f.submit %>
+      </button>
+    </div>
+  </div>
+  <% end %>
