@@ -14,7 +14,7 @@ class WishesController < ApplicationController
   end
 
   private
-  
+
   def wish_params
     params.require(:wish).permit(:title, :description)
   end
