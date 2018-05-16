@@ -13,9 +13,17 @@ body {
     color: white;
 }
 
+/* Alerts */
+.alert {
+    margin: 10px;
+}
 /* Buttons */
 .btn-primary {
     background-color: orange;
+}
+
+.close {
+    line-height: 0;
 }
 
 

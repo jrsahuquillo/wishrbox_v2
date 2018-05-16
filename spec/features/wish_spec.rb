@@ -10,5 +10,6 @@ RSpec.feature "Creating Wishes" do
 
     expect(page).to have_content("Wish has been created")
     expect(page.current_path).to eq(wishes_path)
+
   end
 end
