@@ -1,0 +1,25 @@
+@import "../settings";
+
+html {
+    font-size: $font-base;
+    height: 100%;
+}
+
+body {
+    height: 100%;
+}
+
+.navbar-brand {
+    color: white;
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: orange;
+}
+
+
+/*Forms*/
+.form-control:focus {
+    border-color: orange;
+}
