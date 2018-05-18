@@ -12,5 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require global
 //= require materialize
 //= require_tree .
