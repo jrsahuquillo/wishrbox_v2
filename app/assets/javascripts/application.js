@@ -11,7 +11,6 @@
 // about supported directives.
 //
 //= require jquery
-//= require popper
-//= require bootstrap
-//= require material
+//= require jquery_ujs
+//= require materialize
 //= require_tree .

@@ -33,8 +33,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'awesome_print', :require => 'ap'
 
 #Front framework
-gem 'bootstrap',     '~> 4.1.1'
-gem 'material-sass', '~> 4.1.1'
+gem 'materialize-sass', '~> 1.0.0.rc1'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
