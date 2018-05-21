@@ -8,8 +8,7 @@ RSpec.feature "Creating Wishes" do
     fill_in "Description", with: "Lorem ipsum wishes"
     click_button "Create Wish"
 
-    expect(page).to have_content("Wish has been created")
     expect(page.current_path).to eq(wishes_path)
-
+    expect(page).to have_css("#toast-container") #TODO: Try to test page has content "Wish has been created"
   end
 end
