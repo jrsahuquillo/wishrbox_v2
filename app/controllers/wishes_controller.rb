@@ -8,9 +8,13 @@ class WishesController < ApplicationController
 
   def create
     @wish = Wish.new(wish_params)
-    @wish.save
-    flash[:success] = "Wish has been created"
-    redirect_to wishes_path
+    if @wish.save
+      flash[:success] = "Wish has been created"
+      redirect_to wishes_path
+    else
+      flash[:danger] = "Wish has not been created"
+      render :new
+    end
   end
 
   private
