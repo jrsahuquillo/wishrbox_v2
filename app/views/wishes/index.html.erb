@@ -1,11 +1,28 @@
 <div class="fixed-action-btn">
   <%= link_to new_wish_path, class:".fixed-action-btn btn-floating btn-large waves-effect waves-light orange" do %>
-    <i class="large material-icons">add</i>
+  <i class="large material-icons">add</i>
   <% end %>
-  <!-- <ul>
-    <li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>
-    <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
-    <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
-    <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
-  </ul> -->
+</div>
+
+<div class="row">
+  <div class="col s12 m6">
+    <% if @wishes.empty? %>
+      <h2 id="no-wishes">No wishes created</h2>
+    <% else %>
+      <% @wishes.each do |wish| %>
+        <div class="card">
+          <div class="card-image">
+            <img src="https://lorempixel.com/190/100/nature/6">
+            <span class="card-title white"><%= link_to wish.title, wish_path(wish) %></span>
+            <a class="btn-floating halfway-fab waves-effect waves-light orange">
+              <i class="material-icons">edit</i>
+            </a>
+          </div>
+          <div class="card-content">
+            <p><%= truncate(wish.description, length: 500) %></p>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
 </div>
