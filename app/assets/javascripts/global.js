@@ -7,6 +7,12 @@ $(document).ready( function() {
   });
 
   $(document).ready(function(){
+    console.log("Modals running successfully");
+    $('.modal').modal();
+  });
+
+
+  $(document).ready(function(){
     $('input.autocomplete').autocomplete({
       data: {
         "Title": null,

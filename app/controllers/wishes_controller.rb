@@ -18,6 +18,10 @@ class WishesController < ApplicationController
     end
   end
 
+  def show
+    @wish = Wish.find(params[:id])
+  end
+
   private
 
   def wish_params

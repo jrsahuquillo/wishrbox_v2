@@ -4,25 +4,32 @@
   <% end %>
 </div>
 
-<div class="row">
-  <div class="col s12 m6">
-    <% if @wishes.empty? %>
-      <h2 id="no-wishes">No wishes created</h2>
-    <% else %>
-      <% @wishes.each do |wish| %>
-        <div class="card">
-          <div class="card-image">
-            <img src="https://lorempixel.com/190/100/nature/6">
-            <span class="card-title white"><%= link_to wish.title, wish_path(wish) %></span>
-            <a class="btn-floating halfway-fab waves-effect waves-light orange">
+<% if @wishes.empty? %>
+  <h2 id="no-wishes">No wishes created</h2>
+<% else %>
+  <div class="row">
+    <% @wishes.each do |wish| %>
+        <div class="col s12 m4">
+          <div class="card small">
+            <div class="card-image">
+              <%= link_to image_tag('sample-1.jpg'), "#{"#modal" + wish.id.to_s}", 'data-target' => "modal" + wish.id.to_s, class: "modal-trigger" %>
+              <span class="card-title"><strong><%= link_to wish.title, "#{"#modal" + wish.id.to_s}", class: " modal-trigger" %></strong></span>
+            </div>
+          </div>
+        </div>
+
+        <div id="modal<%= wish.id.to_s %>" class="modal">
+          <div class="modal-content">
+            <h3><%= wish.title %></h3>
+            <%= image_tag('sample-1.jpg') %>
+            <p><%= wish.description %></p>
+          </div>
+          <div class="modal-footer">
+            <%= link_to '/', { class: "btn-floating btn-large waves-effect waves-light red" } do %>
               <i class="material-icons">edit</i>
-            </a>
+            <% end %>
           </div>
-          <div class="card-content">
-            <p><%= truncate(wish.description, length: 500) %></p>
-          </div>
-        <% end %>
-      </div>
+        </div>
     <% end %>
   </div>
-</div>
+<% end %>

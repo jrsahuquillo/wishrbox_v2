@@ -4,3 +4,17 @@
 div.toast {
     opacity: 0.6 !important;
 }
+
+//wish-cards
+.card.small {
+    height: auto;
+    .card-image {
+        overflow: visible;
+    }
+}
+
+.modal {
+    .modal-content img {
+        max-width: 100%;
+    }
+}
