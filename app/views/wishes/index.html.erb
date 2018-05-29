@@ -9,27 +9,29 @@
 <% else %>
   <div class="row">
     <% @wishes.each do |wish| %>
-        <div class="col s12 m4">
-          <div class="card small">
-            <div class="card-image">
-              <%= link_to image_tag('sample-1.jpg'), "#{"#modal" + wish.id.to_s}", 'data-target' => "modal" + wish.id.to_s, class: "modal-trigger" %>
-              <span class="card-title"><strong><%= link_to wish.title, "#{"#modal" + wish.id.to_s}", class: " modal-trigger" %></strong></span>
-            </div>
+      <div class="col s12 m4">
+        <div class="card small">
+          <div class="card-image">
+            <%= link_to image_tag('sample-1.jpg'), "#{"#modal" + wish.id.to_s}", 'data-target' => "modal" + wish.id.to_s, class: "modal-trigger" %>
+            <span class="card-title"><%= link_to wish.title, "#{"#modal" + wish.id.to_s}", class: " modal-trigger" %></span>
           </div>
         </div>
+      </div>
 
-        <div id="modal<%= wish.id.to_s %>" class="modal">
-          <div class="modal-content">
-            <h3><%= wish.title %></h3>
-            <%= image_tag('sample-1.jpg') %>
-            <p><%= wish.description %></p>
-          </div>
-          <div class="modal-footer">
-            <%= link_to '/', { class: "btn-floating btn-large waves-effect waves-light red" } do %>
-              <i class="material-icons">edit</i>
-            <% end %>
-          </div>
+      <div id="modal<%= wish.id.to_s %>" class="modal">
+        <div class="modal-header">
+          <h3><%= wish.title %></h3>
+          <%= link_to '/', { class: "btn-floating btn-small waves-effect waves-light right red" } do %>
+            <i class="material-icons">edit</i>
+          <% end %>
         </div>
+        <div class="modal-content">
+          <div class="wish-image">
+            <%= image_tag('sample-1.jpg') %>
+          </div>
+          <p><%= wish.description %></p>
+        </div>
+      </div>
     <% end %>
   </div>
 <% end %>

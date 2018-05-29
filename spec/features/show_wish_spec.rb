@@ -7,14 +7,12 @@ RSpec.feature "Showing a wish" do
 
   end
 
-  scenario 'A user shows a wish' do
+  scenario 'A user shows a wish in a modal' do
     visit '/'
     page.find('#modal' + @wish.id.to_s).click
 
     expect(page).to have_content(@wish.title)
     expect(page).to have_content(@wish.description)
-
-
   end
 
 end
