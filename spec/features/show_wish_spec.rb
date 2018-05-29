@@ -4,7 +4,6 @@ RSpec.feature "Showing a wish" do
 
   before do
     @wish = Wish.create(title: "Wish1", description: "Wish1 description")
-
   end
 
   scenario 'A user shows a wish in a modal' do

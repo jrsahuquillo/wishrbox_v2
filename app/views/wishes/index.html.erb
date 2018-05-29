@@ -12,8 +12,10 @@
       <div class="col s12 m4">
         <div class="card small">
           <div class="card-image">
-            <%= link_to image_tag('sample-1.jpg'), "#{"#modal" + wish.id.to_s}", 'data-target' => "modal" + wish.id.to_s, class: "modal-trigger" %>
-            <span class="card-title"><%= link_to wish.title, "#{"#modal" + wish.id.to_s}", class: " modal-trigger" %></span>
+            <%= link_to "#{"#modal" + wish.id.to_s}", class: "modal-trigger" do %>
+              <%= image_tag('sample-1.jpg', 'data-target' => "modal" + wish.id.to_s, class: "modal-trigger") %>
+              <span class="card-title"><%= wish.title %></span>
+            <% end %>
           </div>
         </div>
       </div>
@@ -21,7 +23,7 @@
       <div id="modal<%= wish.id.to_s %>" class="modal">
         <div class="modal-header">
           <h3><%= wish.title %></h3>
-          <%= link_to '/', { class: "btn-floating btn-small waves-effect waves-light right red" } do %>
+          <%= link_to edit_wish_path(wish), { class: "btn-floating btn-small waves-effect waves-light right red" } do %>
             <i class="material-icons">edit</i>
           <% end %>
         </div>

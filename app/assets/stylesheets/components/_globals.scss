@@ -10,16 +10,19 @@ div.toast {
     height: auto;
     .card-image {
         overflow: visible;
+        padding: -10px;
     }
 
-    .card-title a {
+    .card-title{
         color: white;
-        font: bold 24px/45px Helvetica, Sans-Serif;
-        letter-spacing: -1px;
+        font: bold 20px Helvetica, Sans-Serif;
         background: rgb(0, 0, 0); /* fallback color */
-        background: rgba(0, 0, 0, 0.7);
-        padding: 10px;
+        background: rgba(0, 0, 0, 0.5);
+        padding: 8px;
+        bottom: 8px;
+        left: 8px;
     }
+
 }
 
 .modal {
@@ -27,5 +30,8 @@ div.toast {
         max-width: 100%;
     }
 
+    .wish-image img{
+        max-height: 400px;
+    }
 
 }

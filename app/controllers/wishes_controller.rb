@@ -19,7 +19,22 @@ class WishesController < ApplicationController
   end
 
   def show
+    # @wish = Wish.find(params[:id])
+  end
+
+  def edit
     @wish = Wish.find(params[:id])
+  end
+
+  def update
+    @wish = Wish.find(params[:id])
+    if @wish.update(wish_params)
+      flash[:success] = "Wish has been updated"
+      redirect_to wishes_path(id: {param:' #modal' + @wish.id.to_s })
+    else
+      flash[:danger] = "Wish has not been updated"
+      render :edit
+    end
   end
 
   private
