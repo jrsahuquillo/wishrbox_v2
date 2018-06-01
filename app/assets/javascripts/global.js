@@ -1,24 +1,21 @@
 $(document).ready( function() {
-  console.log("JavaScript is running successfully");
   M.AutoInit();
+  console.log("Materializecss javascript is running successfully ");
 
-  $(document).ready(function(){
-    $('.fixed-action-btn').floatingActionButton();
-  });
+  $('.fixed-action-btn').floatingActionButton();
+  console.log("floatingActionButton javascript is running successfully")
 
-  $(document).ready(function(){
-    console.log("Modals running successfully");
-    $('.modal').modal();
-  });
+  $('.modal').modal();
+  console.log("Modals running successfully");
+
+  
 
 
-  $(document).ready(function(){
-    $('input.autocomplete').autocomplete({
+    /* $('input.autocomplete').autocomplete({
       data: {
         "Title": null,
         "Microsoft": null,
         "Google": 'https://placehold.it/250x250'
       },
-    });
-  });
+    }); */
 });

@@ -1,10 +1,3 @@
-<div class="fixed-action-btn">
-  <%= link_to new_wish_path, class:".fixed-action-btn btn-floating btn-large waves-effect waves-light orange" do %>
-  <i class="large material-icons">add</i>
-  <% end %>
-</div>
-
-<% if false %>
 <% if @wishes.empty? %>
   <h2 id="no-wishes">No wishes created</h2>
 <% else %>
@@ -37,6 +30,9 @@
     <% end %>
   </div>
 <% end %>
-<% end %>
 
-<%= render "wish_modal" %>
+<script>
+$(document).load( function() {
+  console.log("Wish Modal js ready")
+});
+</script>
