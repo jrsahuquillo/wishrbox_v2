@@ -1,38 +1,22 @@
-<% if @wishes.empty? %>
-  <h2 id="no-wishes">No wishes created</h2>
-<% else %>
-  <div class="row">
-    <% @wishes.each do |wish| %>
-      <div class="col s6 m4">
-        <div class="card small">
-          <div class="card-image">
-            <%= link_to "#{"#modal" + wish.id.to_s}", class: "modal-trigger" do %>
-              <%= image_tag('sample-1.jpg', 'data-target' => "modal" + wish.id.to_s, class: "modal-trigger") %>
-              <span class="card-title"><%= wish.title %></span>
-            <% end %>
-          </div>
-        </div>
-      </div>
-      <div id="modal<%= wish.id.to_s %>" class="modal">
-        <div class="modal-header">
-          <h3><%= wish.title %></h3>
-          <%= link_to edit_wish_path(wish), { class: "btn-floating btn-small waves-effect waves-light right red" } do %>
-            <i class="material-icons">edit</i>
-          <% end %>
-        </div>
-        <div class="modal-content">
-          <div class="wish-image">
-            <%= image_tag('sample-1.jpg') %>
-          </div>
-          <p><%= wish.description %></p>
-        </div>
-      </div>
+
+<!--  Wish Modal -->
+<div id="modal<%= wish.id.to_s %>" class="modal">
+  <div class="modal-header">
+    <h3><%= wish.title %></h3>
+  </div>
+  <div class="modal-content">
+    <div class="wish-image">
+      <%= image_tag('sample-1.jpg') %>
+    </div>
+    <p><%= wish.description %></p>
+  </div>
+  <div class="modal-footer">
+    <%= link_to edit_wish_path(wish), { class: "btn-floating btn-small waves-effect waves-light orange", id: "modal#{wish.id.to_s}" } do %>
+      <i class="material-icons">edit</i>
+    <% end %>
+
+    <%= link_to '#!', { class: "modal-close btn-floating btn-small waves-effect waves-light red" } do %>
+      <i class="material-icons">close</i>
     <% end %>
   </div>
-<% end %>
-
-<script>
-$(document).load( function() {
-  console.log("Wish Modal js ready")
-});
-</script>
+</div>

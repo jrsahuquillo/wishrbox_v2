@@ -4,7 +4,6 @@
   <% end %>
 </div>
 
-<% if false %>
 <% if @wishes.empty? %>
   <h2 id="no-wishes">No wishes created</h2>
 <% else %>
@@ -20,23 +19,7 @@
           </div>
         </div>
       </div>
-      <div id="modal<%= wish.id.to_s %>" class="modal">
-        <div class="modal-header">
-          <h3><%= wish.title %></h3>
-          <%= link_to edit_wish_path(wish), { class: "btn-floating btn-small waves-effect waves-light right red" } do %>
-            <i class="material-icons">edit</i>
-          <% end %>
-        </div>
-        <div class="modal-content">
-          <div class="wish-image">
-            <%= image_tag('sample-1.jpg') %>
-          </div>
-          <p><%= wish.description %></p>
-        </div>
-      </div>
+      <%= render "wish_modal", wish: wish %>
     <% end %>
   </div>
 <% end %>
-<% end %>
-
-<%= render "wish_modal" %>
