@@ -18,9 +18,7 @@ class WishesController < ApplicationController
     end
   end
 
-  def show
-    # @wish = Wish.find(params[:id])
-  end
+  def show; end
 
   def edit
     @wish = Wish.find(params[:id])
