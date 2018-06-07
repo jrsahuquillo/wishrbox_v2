@@ -35,6 +35,14 @@ class WishesController < ApplicationController
     end
   end
 
+  def destroy
+    @wish = Wish.find(params[:id])
+    if @wish.destroy
+      flash[:success] = "Wish has been deleted"
+      redirect_to wishes_path
+    end
+  end
+
   private
 
   def wish_params
