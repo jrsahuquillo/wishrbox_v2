@@ -16,10 +16,9 @@
     <% end %>
     <%= link_to wish_path(wish), method: :delete,
         data: {confirm: "Are you sure you want to delete wish?"},
-        class: "btn-floating btn-small waves-effect waves-light red" do %>
+        class: "btn-floating btn-small waves-effect waves-light red left" do %>
       <i class="material-icons">delete</i>
     <% end %>
-
     <%= link_to '#!', { class: "modal-close btn-floating btn-small waves-effect waves-light grey" } do %>
       <i class="material-icons">close</i>
     <% end %>
