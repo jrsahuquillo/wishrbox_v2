@@ -38,7 +38,7 @@
         <div id="toast-container">
           <p>
             <%= javascript_tag "M.toast({html: '#{message.html_safe}',
-                                         classes: '#{key == "success" ? "green darken-1" : "red darken-1"}'
+                                         classes: '#{key == "notice" ? "green darken-1" : "red darken-1"}'
                                          })" %>
           </p>
         </div>
