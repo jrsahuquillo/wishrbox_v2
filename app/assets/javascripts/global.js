@@ -14,4 +14,6 @@ $(document).ready( function() {
     $('.modal' + modal).modal('open');
   };
 
+   $('textarea#wish_description.materialize-textarea').characterCounter();
+
 });
