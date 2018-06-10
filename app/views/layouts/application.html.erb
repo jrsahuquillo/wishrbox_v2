@@ -12,11 +12,26 @@
   </head>
 
   <body>
-    <nav>
-      <div class="nav-wrapper light-blue">
-        <a href="/" class="brand-logo">WishrBox</a>
-      </div>
-    </nav>
+
+
+    <nav class="nav-extended">
+    <div class="nav-wrapper">
+      <a href="/" class="brand-logo">WishrBox</a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="sass.html">Sass</a></li>
+        <li><%= link_to "Sign up", new_user_registration_path, class: 'desktop-signup' %></li>
+        <li><%= link_to "Sign out", destroy_user_session_path, method: :delete, class: 'desktop-signout' %></li>
+      </ul>
+    </div>
+  </nav>
+
+  <ul class="sidenav" id="mobile-demo">
+    <li><a href="sass.html">Sass</a></li>
+    <li><%= link_to "Sign up", new_user_registration_path, class: 'mobile-signup' %></li>
+    <li><%= link_to "Sign out", destroy_user_session_path, method: :delete, class: 'mobile-signout' %></li>
+  </ul>
+
 
     <div class="container">
       <% flash.each do |key, message| %>
