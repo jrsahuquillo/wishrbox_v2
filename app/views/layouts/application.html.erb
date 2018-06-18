@@ -2,48 +2,15 @@
 <html lang="en">
   <head>
     <title>Wishrbox</title>
-
     <%= csrf_meta_tags %>
     <!--Let browser know website is optimized for mobile-->
     <meta content="initial-scale=1, shrink-to-fit=no, width=device-width" name="viewport">
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
-
   </head>
 
   <body>
-
-
-    <nav class="nav-extended">
-    <div class="nav-wrapper">
-      <a href="/" class="brand-logo">WishrBox</a>
-      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="sass.html">Sass</a></li>
-        <li><%= link_to "Sign up", new_user_registration_path, class: 'desktop-signup' %></li>
-        <li><%= link_to "Sign out", destroy_user_session_path, method: :delete, class: 'desktop-signout' %></li>
-      </ul>
-    </div>
-  </nav>
-
-  <ul class="sidenav" id="mobile-demo">
-    <li><a href="sass.html">Sass</a></li>
-    <li><%= link_to "Sign up", new_user_registration_path, class: 'mobile-signup' %></li>
-    <li><%= link_to "Sign out", destroy_user_session_path, method: :delete, class: 'mobile-signout' %></li>
-  </ul>
-
-
-    <div class="container">
-      <% flash.each do |key, message| %>
-        <div id="toast-container">
-          <p>
-            <%= javascript_tag "M.toast({html: '#{message.html_safe}',
-                                         classes: '#{key == "notice" ? "green darken-1" : "red darken-1"}'
-                                         })" %>
-          </p>
-        </div>
-      <% end %>
-      <%= yield %>
-    </div>
+    <%= render 'shared/header' %>
+    <%= render 'shared/main' %>
   </body>
 </html>

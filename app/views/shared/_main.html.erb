@@ -1,0 +1,12 @@
+<div class="container">
+  <% flash.each do |key, message| %>
+    <div id="toast-container">
+      <p>
+        <%= javascript_tag "M.toast({html: '#{message.html_safe}',
+                                     classes: '#{key == "notice" ? "green darken-1" : "red darken-1"}'
+                                     })" %>
+      </p>
+    </div>
+  <% end %>
+  <%= yield %>
+</div>
