@@ -17,6 +17,10 @@
               <span class="card-title"><%= wish.title %></span>
             <% end %>
           </div>
+          <!-- Provisional -->
+          <div class="card-user">
+            <small>User: <%= wish.user.try(:email) %></small>
+          </div>
         </div>
       </div>
       <%= render "wish_modal", wish: wish %>

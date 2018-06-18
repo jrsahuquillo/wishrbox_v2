@@ -1,5 +1,5 @@
 class WishesController < ApplicationController
-  # before_action :authenticate_user!, except: :index
+  before_action :authenticate_user!
   before_action :set_wish, only: [:edit, :update, :destroy]
 
   def index
@@ -12,6 +12,7 @@ class WishesController < ApplicationController
 
   def create
     @wish = Wish.new(wish_params)
+    @wish.user = current_user
     if @wish.save
       flash[:notice] = "Wish has been created"
       redirect_to wishes_path

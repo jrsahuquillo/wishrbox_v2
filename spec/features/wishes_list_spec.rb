@@ -3,8 +3,10 @@ require 'rails_helper'
 RSpec.feature "Creating Wishes" do
 
   before do
-    @wish1 = Wish.create(title: "Wish1", description: "Wish1 description")
-    @wish2 = Wish.create(title: "Wish2", description: "Wish2 description")
+    sahu = User.create!(email: 'sahu@mail.com', password: 'password')
+    login_as(sahu)
+    @wish1 = Wish.create(title: "Wish1", description: "Wish1 description", user: sahu)
+    @wish2 = Wish.create(title: "Wish2", description: "Wish2 description", user: sahu)
   end
 
   scenario "A user list all wishes" do

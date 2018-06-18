@@ -3,7 +3,9 @@ require 'rails_helper'
 RSpec.feature "Editing Wishes" do
 
   before do
-    @wish = Wish.create(title: "Wish1", description: "Wish1 description")
+    sahu = User.create!(email: 'sahu@mail.com', password: 'password')
+    login_as(sahu)
+    @wish = Wish.create(title: "Wish1", description: "Wish1 description", user: sahu)
   end
 
   scenario "A user updates a wish" do
