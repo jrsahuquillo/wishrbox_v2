@@ -29,4 +29,19 @@ RSpec.feature "Sign up users" do
     expect(page.current_path).to eq("/users")
   end
 
+  scenario "with repeated credentials" do
+    @sahu = User.create!(username: 'user', email: 'user@mail.com', password: 'password')
+    visit "/"
+    page.find('a.desktop-signup').click
+    fill_in "Username", with: "user"
+    fill_in "Email", with: "user@mail.com"
+    fill_in "Password", with: "password"
+    fill_in "Password confirmation", with: "password"
+    click_button "Sign up"
+
+    expect(page).to have_content("Username has already been taken")
+    expect(page).to have_content("Email has already been taken")
+    expect(page.current_path).to eq("/users")
+  end
+
 end
