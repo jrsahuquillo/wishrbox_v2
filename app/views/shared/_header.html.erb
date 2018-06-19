@@ -7,7 +7,7 @@
         <li><a href="sass.html">Sass</a></li>
         <% if user_signed_in? %>
           <li><%= link_to "Sign out", destroy_user_session_path, method: :delete, class: 'desktop-signout' %></li>
-          <li>Logged in as <%= "#{current_user.email}" %></li>
+          <li>Logged in as <%= "#{current_user.username}" %></li>
         <% else %>
           <li><%= link_to "Sign up", new_user_registration_path, class: 'desktop-signup' %></li>
           <li><%= link_to "Login", new_user_session_path, class: 'desktop-login' %></li>
@@ -18,7 +18,7 @@
 
   <ul class="sidenav" id="mobile-demo">
     <% if user_signed_in? %>
-      <li>Logged in as <%= "#{current_user.email}" %></li>
+      <li>Logged in as <%= "#{current_user.username}" %></li>
       <li><%= link_to "Sign out", destroy_user_session_path, method: :delete, class: 'mobile-signout' %></li>
     <% else %>
       <li><%= link_to "Sign up", new_user_registration_path, class: 'mobile-signup' %></li>

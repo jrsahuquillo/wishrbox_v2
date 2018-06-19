@@ -5,6 +5,7 @@ RSpec.feature "Sign up users" do
   scenario "with valid credentials" do
     visit "/"
     page.find('a.desktop-signup').click
+    fill_in "Username", with: "user"
     fill_in "Email", with: "user@example.com"
     fill_in "Password", with: "password"
     fill_in "Password confirmation", with: "password"
@@ -18,6 +19,7 @@ RSpec.feature "Sign up users" do
   scenario "with invalid credentials" do
     visit "/"
     page.find('a.desktop-signup').click
+    fill_in "Username", with: ""
     fill_in "Email", with: ""
     fill_in "Password", with: ""
     fill_in "Password confirmation", with: ""
@@ -26,4 +28,5 @@ RSpec.feature "Sign up users" do
     # expect(page).to have_content("You have not signed up succesfully")
     expect(page.current_path).to eq("/users")
   end
+
 end

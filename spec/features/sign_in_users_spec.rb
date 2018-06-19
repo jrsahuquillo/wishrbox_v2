@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.feature "Sign in users" do
 
   before do
-    @sahu = User.create!(email: 'sahu@mail.com', password: 'password')
+    @sahu = User.create!(username: 'sahuqui', email: 'sahu@mail.com', password: 'password')
   end
 
   scenario "with valid credentials" do
@@ -19,6 +19,7 @@ RSpec.feature "Sign in users" do
     expect(page).not_to have_css('a.mobile-login')
     expect(page).not_to have_css('a.desktop-signup')
     expect(page).not_to have_css('a.mobile-signup')
+    expect(page).to have_content('Logged in as sahuqui')
   end
 
   scenario "with invalid credentials" do
