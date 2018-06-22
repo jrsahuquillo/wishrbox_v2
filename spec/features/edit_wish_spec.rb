@@ -20,7 +20,7 @@ RSpec.feature "Editing Wishes" do
     # expect(page).to have_content("Wish has been updated")
     expect(page).to have_css("#toast-container")
     expect(page.current_path).to eq(wishes_path)
-    expect(page).to have_css(".modal-footer #modal1", text: 'edit')
+    expect(page).to have_css("#edit-button-modal1", text: 'edit')
   end
 
   scenario "A user fails to update a wish" do
@@ -46,7 +46,7 @@ RSpec.feature "Editing Wishes" do
     visit "/"
     click_link @wish2.title
 
-    expect(page).not_to have_css(".modal-footer #modal1", text: 'edit')
+    expect(page).not_to have_css(".modal-footer #edit-button-modal1", text: 'edit')
   end
 
 end
