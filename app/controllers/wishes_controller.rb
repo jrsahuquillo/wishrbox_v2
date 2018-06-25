@@ -25,15 +25,24 @@ class WishesController < ApplicationController
   def show; end
 
   def edit
+    unless @wish.user == current_user
+      flash[:alert] = "You can only edit your own wish"
+      redirect_to root_path
+    end
   end
 
   def update
-    if @wish.update(wish_params)
-      flash[:notice] = "Wish has been updated"
-      redirect_to wishes_path
+    unless @wish.user == current_user
+      flash[:alert] = "You can only edit your own wish"
+      redirect_to root_path
     else
-      flash[:danger] = "Wish has not been updated"
-      render :edit
+      if @wish.update(wish_params)
+        flash[:notice] = "Wish has been updated"
+        redirect_to wishes_path
+      else
+        flash[:danger] = "Wish has not been updated"
+        render :edit
+      end
     end
   end
 
@@ -48,7 +57,7 @@ class WishesController < ApplicationController
 
   def resource_not_found
     message = "The wish you are looking for could not be found"
-    flash[:danger] = message
+    flash[:alert] = message
     redirect_to root_path
   end
 
