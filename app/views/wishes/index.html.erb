@@ -12,7 +12,7 @@
       <div class="col s6 m4">
         <div class="card small">
           <div class="card-image">
-            <%= link_to "#{"#modal" + wish.id.to_s}", class: "modal-trigger" do %>
+            <%= link_to "#{"#modal" + wish.id.to_s}", class: "modal-trigger", id: "#modal + wish.id.to_s" do %>
               <%= image_tag('sample-1.jpg', 'data-target' => "modal" + wish.id.to_s, class: "modal-trigger") %>
               <span class="card-title"><%= wish.title %></span>
             <% end %>
