@@ -9,7 +9,7 @@
 <% else %>
   <div class="row">
     <% @wishes.each do |wish| %>
-      <div class="col s6 m4">
+      <div class="col s6 l3 m4">
         <div class="card small">
           <div class="card-image">
             <%= link_to "#{"#modal" + wish.id.to_s}", class: "modal-trigger", id: "#modal + wish.id.to_s" do %>

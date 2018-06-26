@@ -59,4 +59,6 @@ RSpec.feature "Wishes", type: :request do
 
   end
 
+  # Do the same with delete action
+
 end
