@@ -47,9 +47,17 @@ class WishesController < ApplicationController
   end
 
   def destroy
-    if @wish.destroy
-      flash[:notice] = "Wish has been deleted"
-      redirect_to wishes_path
+    unless @wish.user == current_user
+      flash[:alert] = "You can only delete your own wish"
+      redirect_to root_path
+    else
+      if @wish.destroy
+        flash[:notice] = "Wish has been deleted"
+        redirect_to wishes_path
+      else
+        flash[:danger] = "Wish has not been deleted"
+        render :edit
+      end
     end
   end
 

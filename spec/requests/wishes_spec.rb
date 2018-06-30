@@ -59,6 +59,55 @@ RSpec.feature "Wishes", type: :request do
 
   end
 
-  # Do the same with delete action
+
+  describe 'DELETE /wishes/:id' do
+
+    context 'with existing wish' do
+      before do
+        login_as(@sahu)
+        delete "/wishes/#{@wish.id}"
+      end
+
+      it 'handles existing wish and deletes it succesfully' do
+        expect(response.status).to eq 302
+      end
+    end
+
+    context 'with non-signed-in user' do
+      before { delete "/wishes/#{@wish.id}" }
+
+      it 'redirects to the sign-in page' do
+        expect(response.status).to eq 302
+        flash_message = "You need to sign in or sign up before continuing."
+        expect(flash[:alert]).to eq flash_message
+      end
+    end
+
+    context 'with signed-in user who is non-owner' do
+      before do
+        login_as(@clara)
+        delete "/wishes/#{@wish.id}"
+      end
+
+      it 'redirects to the home page' do
+        expect(response.status).to eq 302
+        flash_message = "You can only delete your own wish"
+        expect(flash[:alert]).to eq flash_message
+      end
+    end
+
+    context 'with non-existing wish' do
+      before do
+        login_as(@sahu)
+        delete "/wishes/xxxx"
+      end
+
+      it 'handles non-existing wish' do
+        expect(response.status).to eq 302
+        flash_message = "The wish you are looking for could not be found"
+        expect(flash[:alert]).to eq flash_message
+      end
+    end
+  end
 
 end
