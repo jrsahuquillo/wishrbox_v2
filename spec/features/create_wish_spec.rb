@@ -8,7 +8,7 @@ RSpec.feature "Creating Wishes" do
   end
 
   scenario "A user creates a new wish" do
-    visit "/"
+    visit "/wishes"
     click_link "add"
     fill_in "Title", with: "Creating a wish"
     fill_in "Description", with: "Lorem ipsum wishes"
@@ -23,7 +23,7 @@ RSpec.feature "Creating Wishes" do
   end
 
   scenario "A user fails to create a new wish" do
-    visit "/"
+    visit "/wishes"
     click_link "add"
     fill_in "Title", with: ""
     fill_in "Description", with: ""

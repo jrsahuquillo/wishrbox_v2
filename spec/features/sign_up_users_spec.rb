@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.feature "Sign up users" do
 
   scenario "with valid credentials" do
-    visit "/"
+    visit "/wishes"
     page.find('a.desktop-signup').click
     fill_in "Username", with: "user"
     fill_in "Email", with: "user@example.com"
@@ -12,12 +12,12 @@ RSpec.feature "Sign up users" do
     click_button "Sign up"
 
     # expect(page).to have_content("You have signed up succesfully")
-    expect(page.current_path).to eq("/")
+    expect(page.current_path).to eq("/wishes")
     expect(page).to have_css("#toast-container")
   end
 
   scenario "with invalid credentials" do
-    visit "/"
+    visit "/wishes"
     page.find('a.desktop-signup').click
     fill_in "Username", with: ""
     fill_in "Email", with: ""

@@ -10,7 +10,7 @@ RSpec.feature "Creating Wishes" do
   end
 
   scenario "A user list all wishes" do
-    visit "/"
+    visit "/wishes"
 
     expect(page).to have_content(@wish1.title)
     expect(page).to have_content(@wish2.title)
@@ -20,7 +20,7 @@ RSpec.feature "Creating Wishes" do
 
   scenario "A user has no wishes" do
     Wish.delete_all
-    visit "/"
+    visit "/wishes"
 
     expect(page).not_to have_content(@wish1.title)
     expect(page).not_to have_content(@wish2.title)

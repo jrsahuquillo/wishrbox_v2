@@ -9,7 +9,7 @@ RSpec.feature "Deleting a Wish" do
   end
 
   scenario "A user deletes a existing wish" do
-    visit "/"
+    visit "/wishes"
     click_link @wish.title
     expect(page).to have_css("#delete-button-modal1", text: 'delete')
     click_link "delete"
@@ -27,7 +27,7 @@ RSpec.feature "Deleting a Wish" do
     @wish2 = Wish.create(title: "Wish2", description: "Wish2 description", user: user2)
     login_as(user1)
 
-    visit "/"
+    visit "/wishes"
     click_link @wish2.title
 
     expect(page).not_to have_css(".modal-footer #delete-button-modal1", text: 'delete')

@@ -4,7 +4,7 @@ RSpec.feature "Sign out logged in users" do
 
   before do
     @sahu = User.create!(email: 'sahu@mail.com', password: 'password')
-    visit "/"
+    visit "/wishes"
     page.find('a.desktop-login').click
     fill_in "Email", with: @sahu.email
     fill_in "Password", with: @sahu.password
@@ -12,7 +12,7 @@ RSpec.feature "Sign out logged in users" do
   end
 
   scenario do
-    visit "/"
+    visit "/wishes"
     page.find('a.desktop-signout').click
 
     # expect(page).to have_content("Signed out succesfully")

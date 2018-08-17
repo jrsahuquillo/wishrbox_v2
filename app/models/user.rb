@@ -5,5 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :wishes
+  has_many :user_wishlists
+  has_many :wishlists, through: :user_wishlists
   validates_uniqueness_of :username
 end

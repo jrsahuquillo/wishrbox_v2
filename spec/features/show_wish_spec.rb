@@ -9,7 +9,7 @@ RSpec.feature "Showing a wish" do
   end
 
   scenario 'A user shows a wish in a modal' do
-    visit '/'
+    visit '/wishes'
 
     page.find('#modal' + (@wish.id.to_s)).click
 

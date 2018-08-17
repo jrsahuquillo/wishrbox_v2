@@ -7,13 +7,13 @@ RSpec.feature "Sign in users" do
   end
 
   scenario "with valid credentials" do
-    visit "/"
+    visit "/wishes"
     page.find('a.desktop-login').click
     fill_in "Email", with: @sahu.email
     fill_in "Password", with: @sahu.password
     click_button "Log in"
 
-    expect(page.current_path).to eq("/")
+    expect(page.current_path).to eq("/wishes")
     expect(page).to have_css("#toast-container")
     expect(page).not_to have_css('a.desktop-login')
     expect(page).not_to have_css('a.mobile-login')
@@ -23,7 +23,7 @@ RSpec.feature "Sign in users" do
   end
 
   scenario "with invalid credentials" do
-    visit "/"
+    visit "/wishes"
     page.find('a.desktop-login').click
     fill_in "Email", with: ""
     fill_in "Password", with: ""
