@@ -1,5 +1,3 @@
-<%= link_to 'New Wishlist', new_wishlist_path %>
-
 <div class="row">
   <% @wishlists.each do |wishlist| %>
     <div class="col s6 l3 m4">
@@ -7,3 +5,5 @@
     </div>
   <% end %>
 </div>
+
+<%= link_to 'New Wishlist', new_wishlist_path, class: 'btn btn-primary' %>
