@@ -1,9 +1,14 @@
 <div class="row">
-  <% @wishlists.each do |wishlist| %>
-    <div class="col s6 l3 m4">
-      <%= wishlist.title %>
-    </div>
+  <h4>Wishlists</h4>
+  <div class="collection">
+    <% if @wishlists.empty? %>
+    <h2 id="no-wishlists" class="collection-item">No wishlists created</h2>
+    <% else %>
+    <% @wishlists.each do |wishlist| %>
+      <%= link_to wishlist.title, "" , class: 'collection-item' %>
+    <% end %>
   <% end %>
+  </div>
 </div>
 
 <%= link_to 'New Wishlist', new_wishlist_path, class: 'btn btn-primary' %>

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "Creating Wishes" do
+RSpec.feature "Listing Wishes" do
 
   before do
     sahu = User.create!(email: 'sahu@mail.com', password: 'password')
