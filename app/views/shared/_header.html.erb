@@ -4,7 +4,9 @@
       <a href="/" class="brand-logo">WishrBox</a>
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="sass.html">Sass</a></li>
+        <% unless request.env['PATH_INFO'] == "/wishes" %>
+          <li><%= link_to "Wishes", wishes_path, class: 'desktop-wishes' %></li>
+        <% end %>
         <% if user_signed_in? %>
           <li>Logged in as <%= "#{current_user.username}" %></li>
           <li><%= link_to "Sign out", destroy_user_session_path, method: :delete, class: 'desktop-signout' %></li>
@@ -26,6 +28,6 @@
       <li><%= link_to "Sign up", new_user_registration_path, class: 'mobile-signup' %></li>
       <li><%= link_to "Login", new_user_session_path, class: 'mobile-login' %></li>
     <% end %>
-    <li><a href="sass.html">Sass</a></li>
+    <li><%= link_to "Wishes", wishes_path, class: 'mobile-wishes' %></li>
   </ul>
 </header>
